@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
+  get 'api/v1/tenants', to: 'api/v1/tenants#index'
   get 'welcome/index'
+
+  namespace :api do
+    namespace :v1 , format: 'json' do
+      resources :questions
+    end
+    
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
